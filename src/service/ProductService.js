@@ -1,10 +1,21 @@
-import React from 'react';
+import smartStockConfig from '../config/SmartStockConfig';
 import Product from '../model/Product'
 
 class ProductService {    
 
-    static getAllProducts(onSuccess) {
-        fetch("http://localhost:8080/v1/product")
+    static insertProduct(product) {   
+        console.log(product);
+        const requestOptions = {
+            method: smartStockConfig.product.insert.method,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(product.toInsertDto())
+        };
+        fetch(smartStockConfig.product.insert.path, requestOptions)
+        .then(response => response.json());
+    }
+
+    static getAllProducts(onSuccess) {       
+        fetch(smartStockConfig.product.list.path)
         .then(res => res.json())
         .then(
           (result) => {

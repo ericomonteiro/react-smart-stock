@@ -8,10 +8,17 @@ class Product {
     }
 
     static fromListObject(list) {
-        console.log(list);
         return list.map(
             p => new Product(p.id, p.name, p.details, p.price, p.stock)
         );
+    }
+
+    toInsertDto() {
+        return {
+            name: this.name,
+            details: this.details,
+            price: this.price
+        }
     }
 
 }
