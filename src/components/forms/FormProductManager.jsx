@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { FormControl, TextField, Button, Container, Typography, InputLabel, InputAdornment, OutlinedInput } from '@material-ui/core';
-import DefaultInputField from '../utils/DefaultInputField';
 import Product from '../../model/Product';
 import ProductService from '../../service/ProductService';
 
@@ -20,8 +19,15 @@ function FormProductManager() {
     return (
         <Container>
             <Typography variant="h3" component="h1" align="center">Cadastro de produtos</Typography>
-            <form onSubmit={onSubmit}>
-                <DefaultInputField id="name" label="Nome" value={name} onChange={(event) => setName(event.target.value)}/>
+            <form onSubmit={onSubmit}>            
+                <TextField 
+                    id="name"
+                    label="Nome"
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                    value={name}
+                    onChange={(event) => setName(event.target.value)} />
                 <TextField
                     id="details"
                     label="Detalhes"
