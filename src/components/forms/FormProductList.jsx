@@ -20,8 +20,8 @@ function FormProductList() {
 
     return (
         <Container>
-            <div style={{ height: 400, width: '100%' }}>
-                <DataGrid loading={loading} rows={products} columns={columns} pageSize={5} checkboxSelection />
+            <div style={{ height: 600, width: '100%' }}>
+                <DataGrid loading={loading} rows={products} columns={columns} pageSize={10} checkboxSelection />
             </div>
             <Button onClick={() => refreshButtonClick()} >Atualizar</Button>
         </Container>
@@ -30,7 +30,7 @@ function FormProductList() {
 
 const columns = [
         { field: 'id', headerName: 'ID', width: 70 },
-        { field: 'name', headerName: 'Name', width: 130 },
+        { field: 'name', headerName: 'Name', width: 250 },
         { field: 'details', headerName: 'Detalhes', width: 500 },
         { field: 'price', headerName: 'Preço', type: 'number', width: 90},
         { field: 'stock', headerName: 'Estoque', type: 'number', width: 160}

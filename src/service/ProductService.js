@@ -3,15 +3,17 @@ import Product from '../model/Product'
 
 class ProductService {    
 
-    static insertProduct(product) {   
+    static insertProduct(product, callback) {   
         console.log(product);
+
         const requestOptions = {
             method: smartStockConfig.product.insert.method,
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(product.toInsertDto())
         };
+
         fetch(smartStockConfig.product.insert.path, requestOptions)
-        .then(response => response.json());
+        .then(callback);
     }
 
     static getAllProducts(onSuccess) {       
@@ -19,10 +21,10 @@ class ProductService {
         .then(res => res.json())
         .then(
           (result) => {
-            onSuccess(Product.fromListObject(result));
-          },
+              onSuccess(Product.fromListObject(result));
+            },
           (error) => {
-            console.log(error);
+              console.log(error);
           }
         )
     }
