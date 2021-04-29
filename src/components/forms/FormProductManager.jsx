@@ -5,7 +5,7 @@ import DefaultInputField from '../utils/DefaultInputField';
 function FormProductManager() {
     return (
         <Container>
-            <Typography variant="h3">Cadastro de produtos</Typography>
+            <Typography variant="h3" component="h1" align="center">Cadastro de produtos</Typography>
             <form>
                 <DefaultInputField id="name" label="Nome" />
                 <TextField
@@ -26,9 +26,11 @@ function FormProductManager() {
                     />
                 </FormControl>
 
-                <Button type="submit" variant="contained" color="primary">
-                    Cadastrar
-                </Button>
+                <FormControl margin="normal" fullWidth>
+                    <Button type="submit" variant="contained" color="primary">
+                        Cadastrar
+                    </Button>
+                </FormControl>
             </form>
         </Container>
     )
